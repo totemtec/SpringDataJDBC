@@ -1,2 +1,2 @@
 # SpringDataJDBC
-Spring Data JDBC Example
+Spring Data JDBC Examples
