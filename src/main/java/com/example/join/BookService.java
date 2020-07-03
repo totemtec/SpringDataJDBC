@@ -1,6 +1,7 @@
 package com.example.join;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +19,14 @@ public class BookService {
     /**
      * Join Search
      */
-    public List<Book> searchBook(String authorName)
-    {
-        return bookRepository.findBooksByAuthorName(authorName);
-    }
-
     public Page<Book> searchBook(String authorName, Pageable pageable)
     {
-        Page<Book> bookPage = bookRepository.findAll(pageable);
-        return bookPage;
+        List<Book> bookList = bookRepository.findBooksByAuthorName("%"+authorName+"%",
+                pageable.getOffset(), pageable.getPageSize()
+        );
+        long count = bookRepository.countByAuthorName("%"+authorName+"%");
+        Page<Book> page = new PageImpl(bookList, pageable, count);
+        return page;
     }
 
 }

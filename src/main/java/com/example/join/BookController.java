@@ -17,17 +17,12 @@ public class BookController {
     BookService bookService;
 
 
-    @GetMapping("/book/search")
-    public List<Book> searchBooks(@RequestParam String key)
-    {
-        return bookService.searchBook(key);
-    }
-
-    @GetMapping("/book/page")
+    @GetMapping("/book/list")
     public Page<Book> searchBooksWithPage(@RequestParam String key,
-                                          @RequestParam int page)
+                                          @RequestParam int page,
+                                          @RequestParam(defaultValue = "2") int size)
     {
 
-        return bookService.searchBook(key, PageRequest.of(page, 2));
+        return bookService.searchBook(key, PageRequest.of(page, size));
     }
 }

@@ -49,4 +49,5 @@ INSERT INTO `book` VALUES (1, 'A History of Ancient Prague', '001-JN', NULL, 4);
 INSERT INTO `book` VALUES (2, 'A Peoples History', '002-JN', NULL, 4);
 INSERT INTO `book` VALUES (3, 'The Beatles Anthology', '001-MJ', NULL, 1);
 INSERT INTO `book` VALUES (4, 'Carrie', '001-OG', NULL, 2);
+INSERT INTO `book` VALUES (5, 'A Peoples History ', '002-JN', NULL, 4);
 COMMIT;

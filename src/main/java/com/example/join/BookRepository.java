@@ -13,15 +13,15 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
             "  FROM book b" +
             "  JOIN author a" +
             "  ON b.author_id = a.id" +
-            "  WHERE a.name LIKE :authorName")
-    List<Book> findBooksByAuthorName(String authorName);
+            "  WHERE a.name LIKE :authorName ORDER BY b.price DESC LIMIT :offset, :rowCount")
+    List<Book> findBooksByAuthorName(String authorName,
+                                     long offset, int rowCount);
 
-
-    @Query(value = "SELECT b.id id, b.title title, a.name author_name" +
+    @Query("SELECT count(*)" +
             "  FROM book b" +
             "  JOIN author a" +
             "  ON b.author_id = a.id" +
-            "  WHERE a.name LIKE ?1 ORDER BY ?#{#pageable}")
-    Page<Book> findBooksByAuthorName(String authorName, Pageable pageable);
+            "  WHERE a.name LIKE :authorName")
+    long countByAuthorName(String authorName);
 
 }
