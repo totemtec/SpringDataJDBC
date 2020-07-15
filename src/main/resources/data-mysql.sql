@@ -9,7 +9,7 @@ CREATE TABLE `person` (
 BEGIN;
 INSERT INTO `person` VALUES (1, 'Robert', 'Smith');
 INSERT INTO `person` VALUES (2, '马', '江林');
-INSERT INTO `person` VALUES (2, '乔治哥', NULL);
+INSERT INTO `person` VALUES (3, '乔治哥', NULL);
 COMMIT;
 
 
@@ -51,3 +51,17 @@ INSERT INTO `book` VALUES (3, 'The Beatles Anthology', '001-MJ', NULL, 1);
 INSERT INTO `book` VALUES (4, 'Carrie', '001-OG', NULL, 2);
 INSERT INTO `book` VALUES (5, 'A Peoples History ', '002-JN', NULL, 4);
 COMMIT;
+
+
+DROP TABLE IF EXISTS `t_order`;
+CREATE TABLE `t_order` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `total_price` bigint(10) DEFAULT NULL,
+  `merchandise_name` varchar(255) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `last_modified_date` datetime DEFAULT NULL,
+  `last_modified_by` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ;
