@@ -25,7 +25,7 @@ public class BookService {
                 pageable.getOffset(), pageable.getPageSize()
         );
         long count = bookRepository.countByAuthorName("%"+authorName+"%");
-        Page<Book> page = new PageImpl(bookList, pageable, count);
+        Page<Book> page = new PageImpl<Book>(bookList, pageable, count);
         return page;
     }
 

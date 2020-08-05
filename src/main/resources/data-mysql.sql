@@ -65,3 +65,16 @@ CREATE TABLE `t_order` (
   `last_modified_by` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ;
+
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) DEFAULT NULL,
+  `mobile` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ;
+
+BEGIN;
+INSERT INTO `user` VALUES (1, '马江林', '13811522352');
+INSERT INTO `user` VALUES (2, '乔治哥', '18812345678');
+COMMIT;
